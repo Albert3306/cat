@@ -24,7 +24,6 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        echo 11111;exit;
         return view('admin.auth.login');
     }
 }
