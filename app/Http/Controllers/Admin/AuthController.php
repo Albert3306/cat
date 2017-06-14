@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Auth;
+use Cookie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('multi-site.guest:admin', ['except' => 'getLogout']);
+        $this->middleware('guest:admin', ['except' => 'getLogout']);
     }
 
     /**
@@ -25,5 +26,49 @@ class AuthController extends Controller
     public function getLogin()
     {
         return view('admin.auth.login');
+    }
+
+    /**
+     * 登录提交页
+     */
+    public function postLogin(Request $request)
+    {
+        //控制面板路径
+        $redirectTo = site_path('index', 'admin');
+        //认证凭证
+        $credentials = [
+            'username'  => $request->input('username'),
+            'password'  => $request->input('password'),
+            'is_locked' => 0,
+        ];
+
+        // 记住密码
+        if ($request->input('checkbox') == 'on') {
+            $uac['username'] = $credentials['username'];
+            $uac['password'] = $credentials['password'];
+        } else {
+            $uac = null;
+        }
+
+        // 执行登录
+        if (Auth::attempt($credentials, $request->has('remember'))) {
+            event(new UserLogin(auth()->user()));  //触发登录事件
+            return redirect()->intended($redirectTo)->withCookie(cookie('uac',$uac,30));
+        } else {
+            // 登录失败，跳回
+            return redirect()->back()
+                             ->withInput()
+                             ->withErrors(['attempt' => '“用户名”、“密码”错误或帐号已被禁用，请重新登录或联系超管！']);  //回传错误信息
+        }
+    }
+
+    /**
+     * 退出登录
+     */
+    public function getLogout()
+    {
+        @event(new UserLogout(auth()->user()));  //触发登出事件
+        Auth::logout();
+        return redirect()->to(site_path('auth/login', 'admin'));
     }
 }

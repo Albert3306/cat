@@ -26,6 +26,15 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin'], function () {
         Route::get('login', $Auth.'getLogin');
         Route::post('login', $Auth.'postLogin');
     });
+
+    Route::group(['prefix' => '', 'middleware' => ['auth:admin']], function () {
+        Route::get('index', 'IndexController@index');
+
+        // 开发演示
+        Route::get('demo/{type?}', function ($type = 'typography') {
+            return view('admin.demo.'.$type);
+        });
+    });
 });
 /*----- 管理后台站点路由群组 END -----*/
 

@@ -5,9 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * 用户/会员认证中间件(登录跳转中间件)
- */
 class RedirectIfAuthenticated
 {
     /**
@@ -20,7 +17,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $site = null)
     {
-        $backend_home_url = config('site.route.prefix.admin', 'admin').'/dashboard';
+        $backend_home_url = config('site.route.prefix.admin', 'admin').'/index';
         $desktop_home_url = config('site.route.prefix.desktop', '').'/i/welcome.html';
         switch ($site) {
             case 'admin':
@@ -29,7 +26,6 @@ class RedirectIfAuthenticated
                 break;
             case 'desktop':
             default:
-                # code...
                 $guard = 'member';
                 $home_url = $desktop_home_url;
                 break;
