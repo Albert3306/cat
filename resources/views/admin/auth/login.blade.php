@@ -1,9 +1,5 @@
 @extends('admin.layout._base')
 
-@section('head_css')
-<link rel="stylesheet" href="/css/login.css">
-@show{{-- head区域css样式表 --}}
-
 @section('body')
     <div id="wrapper">
         <div class="vertical-align-wrap">

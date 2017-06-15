@@ -28,7 +28,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/admin/images/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/back/images/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
                                 <li><a href="#"><i class="lnr lnr-cog"></i><span>系统管理</span></a></li>
@@ -78,9 +78,8 @@
     <!-- Bootstrap 3.3.7 JS -->
     <script src="/vendor/bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="/admin/js/common.js"></script>
+    <script src="/back/js/common.js"></script>
 
     @section('footer_js')
     @show{{-- 自定义js文件 --}}
-    <script src="/admin/js/common.js"></script>
 @stop
