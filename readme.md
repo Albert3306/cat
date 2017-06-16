@@ -13,7 +13,9 @@
     * 进入项目目录，在命令行运行：`composer install` 安装依赖
     * 项目入口文件在项目根路径下的 `public` 文件中
 
-3. 复制项目根路径下 .env.example 重命名为 .env ，并修改文件中的数据库配置和网站相关配置
+3. 复制项目根路径下 .env.example 重命名为 .env 
+    * 修改文件中的数据库配置和网站相关配置
+    * 在命令行输入：php artisan key:generate 生成 APP_KEY
 
 4. 数据迁移和填充
     * 命令行进入项目根路径，运行如下命令

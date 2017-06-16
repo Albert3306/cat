@@ -27,7 +27,15 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('admin.auth.login',Cookie::get('uac'));
+        $uac = Cookie::get('uac');
+        // 判断 uac 是否存在
+        if (!$uac) {
+            $uac = [
+                'username' => null,
+                'password' => null,
+            ];
+        }
+        return view('admin.auth.login',$uac);
     }
 
     /**
