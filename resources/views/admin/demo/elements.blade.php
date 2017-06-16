@@ -283,3 +283,12 @@
         <!-- END MAIN CONTENT -->
     </div>
 @stop
+
+@section('footer_js')
+<script type="text/javascript">
+$(function () {
+    // 导航高亮
+    highlight_subnav('/admin/demo/elements');
+});
+</script>
+@stop

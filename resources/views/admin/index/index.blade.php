@@ -81,6 +81,9 @@
 <script src="/vendor/chartist/js/chartist.min.js"></script>
 <script>
 $(function () {
+    // 导航高亮
+    highlight_subnav('/admin');
+
     var data, options;
 
     // headline charts

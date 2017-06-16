@@ -45,14 +45,14 @@ $(document).ready(function() {
 		}
 	});
 
-
 	/*-----------------------------------/
 	/*	SIDEBAR NAVIGATION
 	/*----------------------------------*/
 
 	$('.sidebar a[data-toggle="collapse"]').on('click', function() {
 		if($(this).hasClass('collapsed')) {
-			$(this).addClass('active');
+			$('.sidebar a[data-toggle="collapse"]').removeClass('active').addClass('collapsed').next().removeClass('in');
+			$(this).removeClass('collapsed').addClass('active');
 		} else {
 			$(this).removeClass('active');
 		}
@@ -64,7 +64,6 @@ $(document).ready(function() {
 			wheelStep: 2,
 		});
 	}
-
 
 	/*-----------------------------------/
 	/*	PANEL FUNCTIONS
@@ -107,7 +106,6 @@ $(document).ready(function() {
 		}
 	);
 
-
 	/*-----------------------------------/
 	/*	PANEL SCROLLING
 	/*----------------------------------*/
@@ -137,7 +135,6 @@ $(document).ready(function() {
 			$(this).parents('li').removeClass('completed');
 		}
 	});
-
 
 	/*-----------------------------------/
 	/* TOASTR NOTIFICATION
@@ -219,4 +216,19 @@ $.fn.clickToggle = function( f1, f2 ) {
 			return f1.apply(this, arguments);
 		});
 	});
+}
+
+/**
+ * 根据 URL 地址选择导航高亮
+ * @param  string url 需要比对的 URL
+ */
+function highlight_subnav(url)
+{
+	var flag  = $('#sidebar-nav').find('a[href="' + url + '"]'),
+		parent= flag.parent().parent().parent();
+	if (parent.hasClass('collapse')) {
+		parent.addClass('in').prev().removeClass('collapsed').addClass('active');
+	};
+
+	flag.addClass('active');
 }

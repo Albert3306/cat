@@ -64,6 +64,9 @@
 <script src="/vendor/chartist/js/chartist.min.js"></script>
 <script>
 $(function() {
+    // 导航高亮
+    highlight_subnav('/admin/demo/charts');
+
     var options;
 
     var data = {

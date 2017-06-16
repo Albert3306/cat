@@ -31,8 +31,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/back/images/user.png" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->nickname }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
-                                <li><a href="/admin/log"><i class="lnr lnr-cog"></i><span>系统管理</span></a></li>
-                                <li><a href="/admin/auth/logout"><i class="lnr lnr-exit"></i><span>退出登录</span></a></li>
+                                <li><a href="/admin/seting"><i class="lnr lnr-sync"></i><span>重置密码</span></a></li>
+                                <li><a href="/admin/auth/logout"><i class="lnr lnr-power-switch"></i><span>退出登录</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -45,18 +45,18 @@
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
-                        <li><a href="/admin" class="active"><i class="lnr lnr-home"></i> <span>控制台</span></a></li>
+                        <li><a href="/admin"><i class="fa fa-tachometer"></i> <span>控制台</span></a></li>
                         <li>
                             <a href="#subDemo" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>开发演示</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subDemo" class="collapse">
                                 <ul class="nav">
-                                    <li><a href="/admin/demo/typography">Typography</a></li>
-                                    <li><a href="/admin/demo/elements">Elements</a></li>
-                                    <li><a href="/admin/demo/tables">Tables</a></li>
-                                    <li><a href="/admin/demo/notice">Notice</a></li>
-                                    <li><a href="/admin/demo/panels">Panels</a></li>
-                                    <li><a href="/admin/demo/charts">Charts</a></li>
-                                    <li><a href="/admin/demo/icons">Icons</a></li>
+                                    <li><a href="/admin/demo/icons"><i class="lnr lnr-screen"></i><span>Icons</span></a></li>
+                                    <li><a href="/admin/demo/charts"><i class="lnr lnr-chart-bars"></i><span>Charts</span></a></li>
+                                    <li><a href="/admin/demo/panels"><i class="lnr lnr-layers"></i><span>Panels</span></a></li>
+                                    <li><a href="/admin/demo/tables"><i class="lnr lnr-list"></i><span>Tables</span></a></li>
+                                    <li><a href="/admin/demo/notice"><i class="lnr lnr-alarm"></i><span>Notice</span></a></li>
+                                    <li><a href="/admin/demo/elements"><i class="lnr lnr-select"></i><span>Elements</span></a></li>
+                                    <li><a href="/admin/demo/typography"><i class="fa fa-code"></i><span>Typography</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -64,8 +64,8 @@
                             <a href="#subSystem" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>系统管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subSystem" class="collapse">
                                 <ul class="nav">
-                                    <li><a href="/admin/log"><i class="lnr lnr-file-empty"></i> <span>系统日志</span></a></li>
-                                    <li><a href="/admin/seting"><i class="lnr lnr-file-empty"></i> <span>系统设置</span></a></li>
+                                    <li><a href="/admin/seting"><i class="fa fa-wrench"></i> <span>系统设置</span></a></li>
+                                    <li><a href="/admin/log"><i class="fa fa-file-text-o"></i> <span>系统日志</span></a></li>
                                 </ul>
                             </div>
                         </li>

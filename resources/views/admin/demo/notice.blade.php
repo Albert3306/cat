@@ -54,4 +54,10 @@
 
 @section('footer_js')
 <script src="/vendor/toastr/toastr.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    // 导航高亮
+    highlight_subnav('/admin/demo/notice');
+});
+</script>
 @stop
