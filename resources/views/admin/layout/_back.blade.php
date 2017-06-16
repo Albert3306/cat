@@ -45,7 +45,7 @@
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
-                        <li><a href="/admin"><i class="fa fa-tachometer"></i> <span>控制台</span></a></li>
+                        <li><a href="/admin"><i class="lnr lnr-home"></i> <span>首页</span></a></li>
                         <li>
                             <a href="#subDemo" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>开发演示</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subDemo" class="collapse">
