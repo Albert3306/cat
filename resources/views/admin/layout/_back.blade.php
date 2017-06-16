@@ -60,6 +60,15 @@
                                 </ul>
                             </div>
                         </li>
+                        <li>
+                            <a href="#subSystem" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>系统管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subSystem" class="collapse">
+                                <ul class="nav">
+                                    <li><a href="/admin/log"><i class="lnr lnr-file-empty"></i> <span>系统日志</span></a></li>
+                                    <li><a href="/admin/seting"><i class="lnr lnr-file-empty"></i> <span>系统设置</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </div>

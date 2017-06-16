@@ -34,6 +34,9 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin'], function () {
         Route::get('demo/{type?}', function ($type = 'typography') {
             return view('admin.demo.'.$type);
         });
+
+        // 系统管理
+        Route::get('log', 'SystemController@log');
     });
 });
 /*----- 管理后台站点路由群组 END -----*/
