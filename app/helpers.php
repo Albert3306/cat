@@ -38,3 +38,46 @@ if (!function_exists('write_log')) {
         fclose($fp);
     }
 }
+
+if (!function_exists('site_url')) {
+    /**
+     * Generate scheme-less url (not for static asset files) for multi sites
+     * site_url('auth/login', 'mobile') === '//example.com/m/auth/login'
+     *
+     * @param string $path
+     * @param string $site
+     * @param boolean $scheme_less
+     * @return string
+     */
+    function site_url($path, $site = 'desktop', $scheme_less = true)
+    {
+        if (!in_array($site, config('site.route.group'))) {
+            $site = 'desktop';
+        }
+        $sub_dir = config('site.route.prefix.'.$site, '');
+        return internal_link($path, $sub_dir, $scheme_less);
+    }
+}
+
+if (!function_exists('internal_link')) {
+    /**
+     * Generate internal link url
+     *
+     * @param string $path
+     * @param string $sub_dir
+     * @param boolean $scheme_less
+     * @return string
+     */
+    function internal_link($path, $sub_dir, $scheme_less = true)
+    {
+        $host = app('url')->asset('');
+        $sub_dir = ($sub_dir === '') ? $sub_dir : trim($sub_dir, '/').'/';
+        if ($scheme_less) {
+            $root = ltrim($host, 'https:');
+            $root = ltrim($root, 'http:');
+        } else {
+            $root = $host;
+        }
+        return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
+    }
+}

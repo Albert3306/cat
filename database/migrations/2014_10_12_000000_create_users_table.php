@@ -21,14 +21,14 @@ class CreateUsersTable extends Migration
             $table->char('password',60)->comment('密码');
             $table->string('nickname',32)->unique()->comment('昵称');
             $table->integer('login', false, true)->unsigned()->default(0)->comment('登录次数');
-            $table->timestamp('reg_at')->comment('注册时间');
+            $table->timestamp('reg_at')->default(\DB::raw('CURRENT_TIMESTAMP'))->comment('注册时间');
             $table->ipAddress('reg_ip',50)->comment('注册IP');
-            $table->timestamp('last_login_at')->comment('最后一次登录时间');
+            $table->timestamp('last_login_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->comment('最后一次登录时间');
             $table->ipAddress('last_login_ip', 50)->comment('最后一次登录IP');
             $table->tinyInteger('is_locked', false, true)->default(0)->comment('是否锁定');
             $table->tinyInteger('type', false, true)->default(1)->comment('账号注册类型 1：账号 2：邮箱 3：手机');
             $table->rememberToken();
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

@@ -17,11 +17,8 @@ class UsersTableSeeder extends Seeder
             'mobile'        => '18123690365',
             'password'      => bcrypt('123456'),
             'nickname'      => 'admin',
-            'reg_at'        => date('Y-m-d H:s:i'),
-            'reg_ip'        => '127.0.0.1',
-            'last_login_at' => date('Y-m-d H:s:i'),
-            'last_login_ip' => '127.0.0.1',
-            'updated_at'    => date('Y-m-d H:s:i'),
+            'reg_ip'        => app('request')->ip(),
+            'last_login_ip' => app('request')->ip(),
         ]);
     }
 }

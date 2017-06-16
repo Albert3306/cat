@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('admin.auth.login');
+        return view('admin.auth.login',Cookie::get('uac'));
     }
 
     /**
@@ -49,13 +49,14 @@ class AuthController extends Controller
             $uac['username'] = $credentials['username'];
             $uac['password'] = $credentials['password'];
         } else {
-            $uac = null;
+            $uac['username'] = null;
+            $uac['password'] = null;
         }
 
         // 执行登录
         if (Auth::attempt($credentials, $request->has('remember'))) {
             event(new UserLogin(auth()->user()));  //触发登录事件
-            return redirect()->intended($redirectTo)->withCookie(cookie('uac',$uac,30));
+            return redirect()->intended($redirectTo)->withCookie(cookie('uac',$uac,7 * 24 * 60));
         } else {
             // 登录失败，跳回
             return redirect()->back()

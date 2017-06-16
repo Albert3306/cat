@@ -19,14 +19,18 @@
                         <form class="form-auth-small" method="post" action="/admin/auth/login" accept-charset="utf-8">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <input type="text" class="form-control" maxlength="20" name="username" placeholder="账号" autocomplete="new-username">
+                                <input type="text" class="form-control" maxlength="20" name="username" placeholder="账号" autocomplete="new-username" value="{{ $username }}">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" maxlength="20" name="password" placeholder="密码" autocomplete="new-password">
+                                <input type="password" class="form-control" maxlength="20" name="password" placeholder="密码" autocomplete="new-password" value="{{ $password }}">
                             </div>
                             <div class="form-group clearfix">
                                 <label class="fancy-checkbox element-left">
+                                    @if ($username)
+                                    <input type="checkbox" name="checkbox" checked="checked">
+                                    @else
                                     <input type="checkbox" name="checkbox">
+                                    @endif
                                     <span>记住密码</span>
                                 </label>
                             </div>

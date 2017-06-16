@@ -28,10 +28,10 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/back/images/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/back/images/user.png" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->nickname }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
-                                <li><a href="#"><i class="lnr lnr-cog"></i><span>系统管理</span></a></li>
+                                <li><a href="/admin/log"><i class="lnr lnr-cog"></i><span>系统管理</span></a></li>
                                 <li><a href="/admin/auth/logout"><i class="lnr lnr-exit"></i><span>退出登录</span></a></li>
                             </ul>
                         </li>

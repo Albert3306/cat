@@ -2,6 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Models\Users;
+use App\Models\SystemLogs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -16,6 +18,26 @@ class UserEventListener
     public function onUserLogin($event)
     {
         $user = $event->user;
+
+        // 记录登录日志
+        $log = [
+            'user_id' => $user->id,
+            'url'     => site_path('auth/login', 'admin'),
+            'type'    => 'session',
+            'content' => '管理员：'.$user->nickname.'['.$user->email.'] 登录系统。',
+        ];
+
+        $log_db = New SystemLogs;
+        $log_db->write($log);
+
+        // 更新登录数据
+        $data = [
+            'login'         => $user->login + 1,
+            'last_login_ip' => app('request')->ip(),
+        ];
+        $user_db = New Users;
+        $user_db->fill($data);
+        $user_db->where('id','=',$user->id)->update($data);
     }
 
     /**
@@ -24,6 +46,17 @@ class UserEventListener
     public function onUserLogout($event)
     {
         $user = $event->user;
+
+        // 记录登出日志
+        $log = [
+            'user_id' => $user->id,
+            'url'     => site_path('auth/logout', 'admin'),
+            'type'    => 'session',
+            'content' => '管理员：'.$user->nickname.'['.$user->email.'] 登出系统。',
+        ];
+
+        $log_db = New SystemLogs;
+        $log_db->write($log);
     }
 
     /**

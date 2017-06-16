@@ -20,8 +20,8 @@ class CreateSystemLogsTable extends Migration
             $table->string('url',100)->default('-')->comment('操作发起的url');
             $table->string('content')->comment('操作内容');
             $table->string('operator_ip', 50)->comment('操作者ip');
-            $table->timestamp('created_at')->comment('创建时间');
-            $table->timestamp('updated_at')->comment('修改更新时间');
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'))->comment('创建时间');
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->comment('修改更新时间');
         });
     }
 
