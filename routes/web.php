@@ -36,7 +36,7 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin'], function () {
         });
 
         // 系统管理
-        Route::get('log', 'SystemController@log');
+        Route::resource('log', 'LogController');
     });
 });
 /*----- 管理后台站点路由群组 END -----*/

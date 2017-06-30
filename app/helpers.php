@@ -81,3 +81,16 @@ if (!function_exists('internal_link')) {
         return rtrim($root, '/').'/'.$sub_dir.trim($path, '/');
     }
 }
+
+if (!function_exists('dict')) {
+    /**
+     * Get Dictionary config
+     *
+     * @return mixed
+     */
+    function dict($dot_key = null, $default = null)
+    {
+        $dict = app('App\Dict');
+        return $dict->getDict($dot_key, $default);
+    }
+}

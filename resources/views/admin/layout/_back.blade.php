@@ -75,8 +75,16 @@
         </div>
         <!-- END LEFT SIDEBAR -->
         <!-- MAIN -->
-        @section('content')
-        @show{{-- 内容主体区域 --}}
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    @section('content')
+                    @show{{-- 内容主体区域 --}}
+                </div>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
         <!-- END MAIN -->
     </div>
 @stop

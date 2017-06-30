@@ -24,7 +24,7 @@ class UserEventListener
             'user_id' => $user->id,
             'url'     => site_path('auth/login', 'admin'),
             'type'    => 'session',
-            'content' => '管理员：'.$user->nickname.'['.$user->email.'] 登录系统。',
+            'content' => '管理员：'.$user->nickname.'['.$user->username.'] 登录系统。',
         ];
 
         $log_db = New SystemLogs;
@@ -52,7 +52,7 @@ class UserEventListener
             'user_id' => $user->id,
             'url'     => site_path('auth/logout', 'admin'),
             'type'    => 'session',
-            'content' => '管理员：'.$user->nickname.'['.$user->email.'] 登出系统。',
+            'content' => '管理员：'.$user->nickname.'['.$user->username.'] 登出系统。',
         ];
 
         $log_db = New SystemLogs;

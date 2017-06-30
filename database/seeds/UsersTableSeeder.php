@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'email'         => 'admin@admin.com',
             'mobile'        => '18123690365',
             'password'      => bcrypt('123456'),
-            'nickname'      => 'admin',
+            'nickname'      => '超级管理员',
             'reg_ip'        => app('request')->ip(),
             'last_login_ip' => app('request')->ip(),
         ]);
