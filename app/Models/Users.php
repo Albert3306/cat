@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 class Users extends Model
 {
     protected $table = 'users';
-    protected $fillable = ['id', 'username', 'email', 'mobile', 'password', 'nickname', 'login', 'reg_at', 'reg_ip', 'last_login_at', 'last_login_ip', 'is_locked', 'type', 'remember_token', 'updated_at'];
+    protected $fillable = ['id', 'username', 'email', 'mobile', 'nickname', 'login', 'reg_at', 'reg_ip', 'last_login_at', 'last_login_ip', 'is_locked', 'type', 'remember_token', 'updated_at'];
 }

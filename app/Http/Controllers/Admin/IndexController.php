@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Redis;
+
+/**
+ * 后台入口控制器
+ */
 class IndexController extends AdminController
 {
     /**

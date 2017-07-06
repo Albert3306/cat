@@ -35,7 +35,14 @@ Route::group(['prefix' => $_ap, 'namespace' => 'Admin'], function () {
             return view('admin.demo.'.$type);
         });
 
+        // 用户管理
+        Route::get('user', 'UsersController@getInfo');
+        Route::put('user', 'UsersController@putInfo');
+        Route::resource('users', 'UsersController');
+
         // 系统管理
+        Route::get('seting', 'ConfigController@getConfig');
+        Route::put('seting', 'ConfigController@putConfig');
         Route::resource('log', 'LogController');
     });
 });

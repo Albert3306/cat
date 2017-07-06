@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Gate;
-use App\Models\SystemLogs;
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
+use App\Repositories\SystemRepository;
 
 /**
  * 系统日志控制器
  */
 class LogController extends AdminController
 {
-    private $log_db;
+    private $system;
 
-    public function __construct()
+    public function __construct(SystemRepository $system)
     {
         parent::__construct();
-
-        $this->log_db = New SystemLogs;
+        $this->system = $system;
         // if (Gate::denies('@log')) {
         //     $this->middleware('deny:403');
         // }
@@ -36,8 +35,8 @@ class LogController extends AdminController
         if (isset($con['name']) && !empty($con['name'])) {
             $where['name'] = $con['name'];
         }
+        $system_logs = $this->system->index($where);
 
-        $system_logs = $this->log_db->getLists($where);
         return view('admin.log.index',compact('system_logs'));
     }
 
@@ -46,7 +45,7 @@ class LogController extends AdminController
      */
     public function show($id)
     {
-        $sys_log = $this->log_db->getById($id);
+        $sys_log = $this->system->getById($id);
         return view('admin.log.show', compact('sys_log'));
     }
 }

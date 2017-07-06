@@ -14,7 +14,7 @@
         <div class="basic_info bg-info">
             <ul>
                 <li>ID：<span class="text-muted">{{ $sys_log->id }}</span></li>
-                <li>操作者：<span class="text-green">{{ $sys_log->username or '--' }} / {{ $sys_log->nickname or '--' }}</span></li>
+                <li>操作者：<span class="text-green">{{ $sys_log->user->username or '--' }} / {{ $sys_log->user->nickname or '--' }}</span></li>
                 <li>
                     类型：
                     <span class="text-yellow">

@@ -30,9 +30,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/back/images/user.png" class="img-circle" alt="Avatar"> <span>{{ auth()->user()->nickname }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
-                                <li><a href="/admin/seting"><i class="lnr lnr-sync"></i><span>重置密码</span></a></li>
-                                <li><a href="/admin/auth/logout"><i class="lnr lnr-power-switch"></i><span>退出登录</span></a></li>
+                                <li><a href="/admin/user"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
+                                <li><a href="/admin/auth/logout"><i class="lnr lnr-exit"></i><span>退出登录</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -57,6 +56,14 @@
                                     <li><a href="/admin/demo/notice"><i class="lnr lnr-alarm"></i><span>Notice</span></a></li>
                                     <li><a href="/admin/demo/elements"><i class="lnr lnr-select"></i><span>Elements</span></a></li>
                                     <li><a href="/admin/demo/typography"><i class="fa fa-code"></i><span>Typography</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>用户管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subUser" class="collapse">
+                                <ul class="nav">
+                                    <li><a href="/admin/user"><i class="lnr lnr-user"></i><span>个人资料</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -97,6 +104,9 @@
     <script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/back/js/common.js"></script>
 
+    @section('extra_plugin')
+    @show{{-- 额外的 js 插件 --}}
+
     @section('footer_js')
-    @show{{-- 自定义js文件 --}}
+    @show{{-- 自定义 js 文件 --}}
 @stop

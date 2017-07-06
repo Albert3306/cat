@@ -22,7 +22,7 @@ class UserEventListener
         // 记录登录日志
         $log = [
             'user_id' => $user->id,
-            'url'     => site_path('auth/login', 'admin'),
+            'url'     => env('ADMIN_SITE') . site_path('auth/login', 'admin'),
             'type'    => 'session',
             'content' => '管理员：'.$user->nickname.'['.$user->username.'] 登录系统。',
         ];
@@ -50,7 +50,7 @@ class UserEventListener
         // 记录登出日志
         $log = [
             'user_id' => $user->id,
-            'url'     => site_path('auth/logout', 'admin'),
+            'url'     => env('ADMIN_SITE') . site_path('auth/logout', 'admin'),
             'type'    => 'session',
             'content' => '管理员：'.$user->nickname.'['.$user->username.'] 登出系统。',
         ];
