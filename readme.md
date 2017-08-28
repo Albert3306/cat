@@ -20,7 +20,7 @@
 4. 数据迁移和填充
     * 命令行进入项目根路径，运行如下命令
         `php artisan migrate`
-        `php artisan db:seed --class UsersTableSeeder`
+        `php artisan db:seed`
     * 后台登录账号[admin] 密码[123456]
 
 ## 注
